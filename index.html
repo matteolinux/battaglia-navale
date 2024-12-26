@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Battaglia Navale</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(10, 40px); gap: 5px; margin: 20px auto; }
+        .cell { width: 40px; height: 40px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer; }
+        .cell.hit { background-color: red; }
+        .cell.miss { background-color: blue; }
+    </style>
+</head>
+<body>
+    <h1>Battaglia Navale</h1>
+    <div id="controls">
+        <button id="createGame">Crea Partita</button>
+        <input type="text" id="gameId" placeholder="ID Partita">
+        <button id="joinGame">Unisciti</button>
+    </div>
+    <div id="game" style="display: none;">
+        <div class="grids-container">
+            <div class="grid-section">
+                <h2>La tua Griglia</h2>
+                <div class="grid" id="playerGrid"></div>
+            </div>
+            <div class="turn-indicator">
+                <h2 id="turnStatus">In attesa...</h2>
+            </div>
+            <div class="grid-section">
+                <h2>Griglia Avversaria</h2>
+                <div class="grid" id="enemyGrid"></div>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
